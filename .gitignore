@@ -1,0 +1,21 @@
+Python cache
+pycache/
+*.pyc
+
+Virtual Environment
+venv/
+.venv/
+
+Node.js dependencies
+node_modules/
+
+Next.js build output and cache
+.next/
+out/
+
+IDE settings
+.vscode/
+.idea/
+
+Output folder for logs and plots
+output/
