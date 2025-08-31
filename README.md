@@ -87,9 +87,3 @@
     ```bash
     python main.py
     ```
-
------
-
-## 📜 라이선스
-
-이 프로젝트는 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다.
