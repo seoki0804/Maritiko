@@ -1,7 +1,6 @@
 # backend/main.py
 
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 import socketio
 from app.api import sio # 분리된 API 라우터를 가져옴
 
@@ -12,14 +11,8 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS 미들웨어 추가
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# NOTE: FastAPI의 CORSMiddleware는 제거되었습니다.
+# python-socketio의 cors_allowed_origins가 이 역할을 더 잘 처리합니다.
 
 # --- 기본 HTTP 엔드포인트 ---
 @app.get("/health", tags=["Status"])

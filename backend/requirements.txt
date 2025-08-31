@@ -1,12 +1,14 @@
-# Web Server Dependencies
-uvicorn[standard]
-fastapi
-python-socketio
-pydantic
+# --- Web Server Dependencies ---
+# Using a known stable version set
+uvicorn[standard]==0.29.0
+fastapi==0.110.0
 
-# Core Simulation Engine Dependencies
+# --- Real-time Communication (FIXED for compatibility with client v4) ---
+python-engineio==4.8.0
+python-socketio==5.10.0
+
+# --- Core Simulation Engine Dependencies ---
 numpy
 pandas
 scipy
 PyYAML
-

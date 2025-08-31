@@ -5,6 +5,7 @@ from .simulation_manager import SimulationManager
 from .models import StartScenarioRequest, ControlUpdateRequest
 
 # --- Socket.IO 서버 및 시뮬레이션 관리자 설정 ---
+# FIXED: Set CORS to wildcard '*' for robust development connection
 sio = socketio.AsyncServer(async_mode='asgi', cors_allowed_origins="*")
 simulation_manager = SimulationManager(sio)
 
@@ -12,6 +13,8 @@ simulation_manager = SimulationManager(sio)
 @sio.event
 async def connect(sid, environ):
     print(f"✅ Client Connected: {sid}")
+    # Verify connection by sending a message back
+    await sio.emit('message', {'data': 'Connection established!'}, room=sid)
 
 @sio.event
 async def disconnect(sid):
@@ -36,3 +39,4 @@ async def control_update(sid, data):
         simulation_manager.update_control(sid, request.dict())
     except Exception as e:
         await sio.emit('error', {'message': f'Invalid control data: {e}'}, room=sid)
+

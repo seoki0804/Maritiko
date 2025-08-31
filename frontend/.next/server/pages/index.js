@@ -13,6 +13,23 @@ exports.id = "pages/index";
 exports.ids = ["pages/index"];
 exports.modules = {
 
+/***/ "__barrel_optimize__?names=Box!=!./node_modules/@mui/material/index.js":
+/*!*****************************************************************************!*\
+  !*** __barrel_optimize__?names=Box!=!./node_modules/@mui/material/index.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Box: () => (/* reexport default from dynamic */ _Box__WEBPACK_IMPORTED_MODULE_0___default.a)
+/* harmony export */ });
+/* harmony import */ var _Box__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Box */ "./node_modules/@mui/material/node/Box/index.js");
+/* harmony import */ var _Box__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Box__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES&page=%2F&preferredRegion=&absolutePagePath=.%2Fpages%2Findex.tsx&absoluteAppPath=private-next-pages%2F_app&absoluteDocumentPath=private-next-pages%2F_document&middlewareConfigBase64=e30%3D!":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES&page=%2F&preferredRegion=&absolutePagePath=.%2Fpages%2Findex.tsx&absoluteAppPath=private-next-pages%2F_app&absoluteDocumentPath=private-next-pages%2F_document&middlewareConfigBase64=e30%3D! ***!
@@ -29,7 +46,137 @@ eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__
   \*************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! socket.io-client */ \"socket.io-client\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([socket_io_client__WEBPACK_IMPORTED_MODULE_2__]);\nsocket_io_client__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n// frontend/pages/index.tsx\n\n\n\nconst BACKEND_URL = \"http://127.0.0.1:8000\";\nconst HomePage = ()=>{\n    const [socket, setSocket] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    const [isConnected, setIsConnected] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const [simulationState, setSimulationState] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    // 컴포넌트가 처음 렌더링될 때 WebSocket 연결을 설정\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        // Socket.IO 클라이언트 인스턴스 생성\n        const newSocket = (0,socket_io_client__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(BACKEND_URL);\n        setSocket(newSocket);\n        // 연결 성공 시 호출되는 이벤트 리스너\n        newSocket.on(\"connect\", ()=>{\n            console.log(\"✅ Connected to backend WebSocket!\");\n            setIsConnected(true);\n        });\n        // 백엔드로부터 실시간 시뮬레이션 데이터를 받았을 때 호출\n        newSocket.on(\"simulation_update\", (data)=>{\n            setSimulationState(data);\n        });\n        // 연결 끊김 시 호출되는 이벤트 리스너\n        newSocket.on(\"disconnect\", ()=>{\n            console.log(\"❌ Disconnected from backend WebSocket.\");\n            setIsConnected(false);\n        });\n        // 컴포넌트가 사라질 때 연결을 정리\n        return ()=>{\n            newSocket.disconnect();\n        };\n    }, []);\n    // \"Start Simulation\" 버튼 클릭 시 호출되는 함수\n    const handleStartSimulation = ()=>{\n        if (socket) {\n            // 백엔드로 시나리오 시작 이벤트를 전송\n            socket.emit(\"start_scenario\", {\n                scenario_path: \"scenarios/busan_port_approach.yaml\"\n            });\n            console.log(\"\\uD83D\\uDE80 Sent start request for Busan Port scenario.\");\n        }\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        style: {\n            fontFamily: \"monospace\",\n            padding: \"2rem\",\n            color: \"#eee\",\n            backgroundColor: \"#112\"\n        },\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                children: \"Maritiko Frontend\"\n            }, void 0, false, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 64,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                children: [\n                    \"Connection Status: \",\n                    isConnected ? \"Connected\" : \"Disconnected\"\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 65,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                onClick: handleStartSimulation,\n                style: {\n                    padding: \"10px\",\n                    margin: \"10px 0\"\n                },\n                children: \"Start Busan Port Scenario\"\n            }, void 0, false, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 67,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"hr\", {\n                style: {\n                    margin: \"2rem 0\"\n                }\n            }, void 0, false, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 71,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h2\", {\n                children: \"Live Simulation Data:\"\n            }, void 0, false, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 73,\n                columnNumber: 7\n            }, undefined),\n            simulationState ? /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        children: [\n                            \"Time: \",\n                            simulationState.time.toFixed(1),\n                            \" s\"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 76,\n                        columnNumber: 11\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        children: [\n                            \"Position (N, E): \",\n                            simulationState.position[0].toFixed(1),\n                            \", \",\n                            simulationState.position[1].toFixed(1),\n                            \" m\"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 77,\n                        columnNumber: 11\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        children: [\n                            \"Heading: \",\n                            simulationState.heading_deg.toFixed(1),\n                            \" \\xb0\"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 78,\n                        columnNumber: 11\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        children: [\n                            \"SOG: \",\n                            simulationState.sog_kts.toFixed(2),\n                            \" kts\"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 79,\n                        columnNumber: 11\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        children: [\n                            \"ROT: \",\n                            simulationState.rot_deg_min.toFixed(1),\n                            \" \\xb0/min\"\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 80,\n                        columnNumber: 11\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 75,\n                columnNumber: 9\n            }, undefined) : /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                children: \"Waiting for simulation data...\"\n            }, void 0, false, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 83,\n                columnNumber: 9\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n        lineNumber: 63,\n        columnNumber: 5\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC50c3giLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUEsMkJBQTJCOztBQUVpQjtBQUNFO0FBVzlDLE1BQU1HLGNBQWM7QUFFcEIsTUFBTUMsV0FBVztJQUNmLE1BQU0sQ0FBQ0MsUUFBUUMsVUFBVSxHQUFHTCwrQ0FBUUEsQ0FBZ0I7SUFDcEQsTUFBTSxDQUFDTSxhQUFhQyxlQUFlLEdBQUdQLCtDQUFRQSxDQUFDO0lBQy9DLE1BQU0sQ0FBQ1EsaUJBQWlCQyxtQkFBbUIsR0FBR1QsK0NBQVFBLENBQXlCO0lBRS9FLG1DQUFtQztJQUNuQ0QsZ0RBQVNBLENBQUM7UUFDUiwwQkFBMEI7UUFDMUIsTUFBTVcsWUFBWVQsNERBQUVBLENBQUNDO1FBQ3JCRyxVQUFVSztRQUVWLHVCQUF1QjtRQUN2QkEsVUFBVUMsRUFBRSxDQUFDLFdBQVc7WUFDdEJDLFFBQVFDLEdBQUcsQ0FBQztZQUNaTixlQUFlO1FBQ2pCO1FBRUEsaUNBQWlDO1FBQ2pDRyxVQUFVQyxFQUFFLENBQUMscUJBQXFCLENBQUNHO1lBQ2pDTCxtQkFBbUJLO1FBQ3JCO1FBRUEsdUJBQXVCO1FBQ3ZCSixVQUFVQyxFQUFFLENBQUMsY0FBYztZQUN6QkMsUUFBUUMsR0FBRyxDQUFDO1lBQ1pOLGVBQWU7UUFDakI7UUFFQSxxQkFBcUI7UUFDckIsT0FBTztZQUNMRyxVQUFVSyxVQUFVO1FBQ3RCO0lBQ0YsR0FBRyxFQUFFO0lBRUwscUNBQXFDO0lBQ3JDLE1BQU1DLHdCQUF3QjtRQUM1QixJQUFJWixRQUFRO1lBQ1YsdUJBQXVCO1lBQ3ZCQSxPQUFPYSxJQUFJLENBQUMsa0JBQWtCO2dCQUM1QkMsZUFBZTtZQUNqQjtZQUNBTixRQUFRQyxHQUFHLENBQUM7UUFDZDtJQUNGO0lBRUEscUJBQ0UsOERBQUNNO1FBQUlDLE9BQU87WUFBRUMsWUFBWTtZQUFhQyxTQUFTO1lBQVFDLE9BQU87WUFBUUMsaUJBQWlCO1FBQU87OzBCQUM3Riw4REFBQ0M7MEJBQUc7Ozs7OzswQkFDSiw4REFBQ0M7O29CQUFFO29CQUFvQnBCLGNBQWMsY0FBYzs7Ozs7OzswQkFFbkQsOERBQUNxQjtnQkFBT0MsU0FBU1o7Z0JBQXVCSSxPQUFPO29CQUFFRSxTQUFTO29CQUFRTyxRQUFRO2dCQUFTOzBCQUFHOzs7Ozs7MEJBSXRGLDhEQUFDQztnQkFBR1YsT0FBTztvQkFBRVMsUUFBUTtnQkFBUzs7Ozs7OzBCQUU5Qiw4REFBQ0U7MEJBQUc7Ozs7OztZQUNIdkIsZ0NBQ0MsOERBQUNXOztrQ0FDQyw4REFBQ087OzRCQUFFOzRCQUFPbEIsZ0JBQWdCd0IsSUFBSSxDQUFDQyxPQUFPLENBQUM7NEJBQUc7Ozs7Ozs7a0NBQzFDLDhEQUFDUDs7NEJBQUU7NEJBQWtCbEIsZ0JBQWdCMEIsUUFBUSxDQUFDLEVBQUUsQ0FBQ0QsT0FBTyxDQUFDOzRCQUFHOzRCQUFHekIsZ0JBQWdCMEIsUUFBUSxDQUFDLEVBQUUsQ0FBQ0QsT0FBTyxDQUFDOzRCQUFHOzs7Ozs7O2tDQUN0Ryw4REFBQ1A7OzRCQUFFOzRCQUFVbEIsZ0JBQWdCMkIsV0FBVyxDQUFDRixPQUFPLENBQUM7NEJBQUc7Ozs7Ozs7a0NBQ3BELDhEQUFDUDs7NEJBQUU7NEJBQU1sQixnQkFBZ0I0QixPQUFPLENBQUNILE9BQU8sQ0FBQzs0QkFBRzs7Ozs7OztrQ0FDNUMsOERBQUNQOzs0QkFBRTs0QkFBTWxCLGdCQUFnQjZCLFdBQVcsQ0FBQ0osT0FBTyxDQUFDOzRCQUFHOzs7Ozs7Ozs7Ozs7MENBR2xELDhEQUFDUDswQkFBRTs7Ozs7Ozs7Ozs7O0FBSVg7QUFFQSxpRUFBZXZCLFFBQVFBLEVBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9tYXJpdGlrby1mcm9udGVuZC8uL3BhZ2VzL2luZGV4LnRzeD8wN2ZmIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGZyb250ZW5kL3BhZ2VzL2luZGV4LnRzeFxuXG5pbXBvcnQgeyB1c2VFZmZlY3QsIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IGlvLCB7IFNvY2tldCB9IGZyb20gJ3NvY2tldC5pby1jbGllbnQnO1xuXG4vLyDsi5zrrqzroIjsnbTshZgg642w7J207YSw7J2YIO2DgOyeheydhCDsoJXsnZjtlZjsl6wg7L2U65OcIOyViOygleyEsSDtmZXrs7RcbmludGVyZmFjZSBTaW11bGF0aW9uU3RhdGUge1xuICB0aW1lOiBudW1iZXI7XG4gIHBvc2l0aW9uOiBbbnVtYmVyLCBudW1iZXJdO1xuICBoZWFkaW5nX2RlZzogbnVtYmVyO1xuICBzb2dfa3RzOiBudW1iZXI7XG4gIHJvdF9kZWdfbWluOiBudW1iZXI7XG59XG5cbmNvbnN0IEJBQ0tFTkRfVVJMID0gJ2h0dHA6Ly8xMjcuMC4wLjE6ODAwMCc7XG5cbmNvbnN0IEhvbWVQYWdlID0gKCkgPT4ge1xuICBjb25zdCBbc29ja2V0LCBzZXRTb2NrZXRdID0gdXNlU3RhdGU8U29ja2V0IHwgbnVsbD4obnVsbCk7XG4gIGNvbnN0IFtpc0Nvbm5lY3RlZCwgc2V0SXNDb25uZWN0ZWRdID0gdXNlU3RhdGUoZmFsc2UpO1xuICBjb25zdCBbc2ltdWxhdGlvblN0YXRlLCBzZXRTaW11bGF0aW9uU3RhdGVdID0gdXNlU3RhdGU8U2ltdWxhdGlvblN0YXRlIHwgbnVsbD4obnVsbCk7XG5cbiAgLy8g7Lu07Y+s64SM7Yq46rCAIOyymOydjCDroIzrjZTrp4HrkKAg65WMIFdlYlNvY2tldCDsl7DqsrDsnYQg7ISk7KCVXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgLy8gU29ja2V0LklPIO2BtOudvOydtOyWuO2KuCDsnbjsiqTthLTsiqQg7IOd7ISxXG4gICAgY29uc3QgbmV3U29ja2V0ID0gaW8oQkFDS0VORF9VUkwpO1xuICAgIHNldFNvY2tldChuZXdTb2NrZXQpO1xuXG4gICAgLy8g7Jew6rKwIOyEseqztSDsi5wg7Zi47Lac65CY64qUIOydtOuypO2KuCDrpqzsiqTrhIhcbiAgICBuZXdTb2NrZXQub24oJ2Nvbm5lY3QnLCAoKSA9PiB7XG4gICAgICBjb25zb2xlLmxvZygn4pyFIENvbm5lY3RlZCB0byBiYWNrZW5kIFdlYlNvY2tldCEnKTtcbiAgICAgIHNldElzQ29ubmVjdGVkKHRydWUpO1xuICAgIH0pO1xuICAgIFxuICAgIC8vIOuwseyXlOuTnOuhnOu2gO2EsCDsi6Tsi5zqsIQg7Iuc666s66CI7J207IWYIOuNsOydtO2EsOulvCDrsJvslZjsnYQg65WMIO2YuOy2nFxuICAgIG5ld1NvY2tldC5vbignc2ltdWxhdGlvbl91cGRhdGUnLCAoZGF0YTogU2ltdWxhdGlvblN0YXRlKSA9PiB7XG4gICAgICBzZXRTaW11bGF0aW9uU3RhdGUoZGF0YSk7XG4gICAgfSk7XG5cbiAgICAvLyDsl7DqsrAg64GK6rmAIOyLnCDtmLjstpzrkJjripQg7J2067Kk7Yq4IOumrOyKpOuEiFxuICAgIG5ld1NvY2tldC5vbignZGlzY29ubmVjdCcsICgpID0+IHtcbiAgICAgIGNvbnNvbGUubG9nKCfinYwgRGlzY29ubmVjdGVkIGZyb20gYmFja2VuZCBXZWJTb2NrZXQuJyk7XG4gICAgICBzZXRJc0Nvbm5lY3RlZChmYWxzZSk7XG4gICAgfSk7XG5cbiAgICAvLyDsu7Ttj6zrhIztirjqsIAg7IKs65287KeIIOuVjCDsl7DqsrDsnYQg7KCV66asXG4gICAgcmV0dXJuICgpID0+IHtcbiAgICAgIG5ld1NvY2tldC5kaXNjb25uZWN0KCk7XG4gICAgfTtcbiAgfSwgW10pO1xuXG4gIC8vIFwiU3RhcnQgU2ltdWxhdGlvblwiIOuyhO2KvCDtgbTrpq0g7IucIO2YuOy2nOuQmOuKlCDtlajsiJhcbiAgY29uc3QgaGFuZGxlU3RhcnRTaW11bGF0aW9uID0gKCkgPT4ge1xuICAgIGlmIChzb2NrZXQpIHtcbiAgICAgIC8vIOuwseyXlOuTnOuhnCDsi5zrgpjrpqzsmKQg7Iuc7J6RIOydtOuypO2KuOulvCDsoITshqFcbiAgICAgIHNvY2tldC5lbWl0KCdzdGFydF9zY2VuYXJpbycsIHsgXG4gICAgICAgIHNjZW5hcmlvX3BhdGg6ICdzY2VuYXJpb3MvYnVzYW5fcG9ydF9hcHByb2FjaC55YW1sJyBcbiAgICAgIH0pO1xuICAgICAgY29uc29sZS5sb2coJ/CfmoAgU2VudCBzdGFydCByZXF1ZXN0IGZvciBCdXNhbiBQb3J0IHNjZW5hcmlvLicpO1xuICAgIH1cbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgc3R5bGU9e3sgZm9udEZhbWlseTogJ21vbm9zcGFjZScsIHBhZGRpbmc6ICcycmVtJywgY29sb3I6ICcjZWVlJywgYmFja2dyb3VuZENvbG9yOiAnIzExMicgfX0+XG4gICAgICA8aDE+TWFyaXRpa28gRnJvbnRlbmQ8L2gxPlxuICAgICAgPHA+Q29ubmVjdGlvbiBTdGF0dXM6IHtpc0Nvbm5lY3RlZCA/ICdDb25uZWN0ZWQnIDogJ0Rpc2Nvbm5lY3RlZCd9PC9wPlxuICAgICAgXG4gICAgICA8YnV0dG9uIG9uQ2xpY2s9e2hhbmRsZVN0YXJ0U2ltdWxhdGlvbn0gc3R5bGU9e3sgcGFkZGluZzogJzEwcHgnLCBtYXJnaW46ICcxMHB4IDAnIH19PlxuICAgICAgICBTdGFydCBCdXNhbiBQb3J0IFNjZW5hcmlvXG4gICAgICA8L2J1dHRvbj5cblxuICAgICAgPGhyIHN0eWxlPXt7IG1hcmdpbjogJzJyZW0gMCcgfX0gLz5cblxuICAgICAgPGgyPkxpdmUgU2ltdWxhdGlvbiBEYXRhOjwvaDI+XG4gICAgICB7c2ltdWxhdGlvblN0YXRlID8gKFxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxwPlRpbWU6IHtzaW11bGF0aW9uU3RhdGUudGltZS50b0ZpeGVkKDEpfSBzPC9wPlxuICAgICAgICAgIDxwPlBvc2l0aW9uIChOLCBFKToge3NpbXVsYXRpb25TdGF0ZS5wb3NpdGlvblswXS50b0ZpeGVkKDEpfSwge3NpbXVsYXRpb25TdGF0ZS5wb3NpdGlvblsxXS50b0ZpeGVkKDEpfSBtPC9wPlxuICAgICAgICAgIDxwPkhlYWRpbmc6IHtzaW11bGF0aW9uU3RhdGUuaGVhZGluZ19kZWcudG9GaXhlZCgxKX0gwrA8L3A+XG4gICAgICAgICAgPHA+U09HOiB7c2ltdWxhdGlvblN0YXRlLnNvZ19rdHMudG9GaXhlZCgyKX0ga3RzPC9wPlxuICAgICAgICAgIDxwPlJPVDoge3NpbXVsYXRpb25TdGF0ZS5yb3RfZGVnX21pbi50b0ZpeGVkKDEpfSDCsC9taW48L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKSA6IChcbiAgICAgICAgPHA+V2FpdGluZyBmb3Igc2ltdWxhdGlvbiBkYXRhLi4uPC9wPlxuICAgICAgKX1cbiAgICA8L2Rpdj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEhvbWVQYWdlO1xuICAgICJdLCJuYW1lcyI6WyJ1c2VFZmZlY3QiLCJ1c2VTdGF0ZSIsImlvIiwiQkFDS0VORF9VUkwiLCJIb21lUGFnZSIsInNvY2tldCIsInNldFNvY2tldCIsImlzQ29ubmVjdGVkIiwic2V0SXNDb25uZWN0ZWQiLCJzaW11bGF0aW9uU3RhdGUiLCJzZXRTaW11bGF0aW9uU3RhdGUiLCJuZXdTb2NrZXQiLCJvbiIsImNvbnNvbGUiLCJsb2ciLCJkYXRhIiwiZGlzY29ubmVjdCIsImhhbmRsZVN0YXJ0U2ltdWxhdGlvbiIsImVtaXQiLCJzY2VuYXJpb19wYXRoIiwiZGl2Iiwic3R5bGUiLCJmb250RmFtaWx5IiwicGFkZGluZyIsImNvbG9yIiwiYmFja2dyb3VuZENvbG9yIiwiaDEiLCJwIiwiYnV0dG9uIiwib25DbGljayIsIm1hcmdpbiIsImhyIiwiaDIiLCJ0aW1lIiwidG9GaXhlZCIsInBvc2l0aW9uIiwiaGVhZGluZ19kZWciLCJzb2dfa3RzIiwicm90X2RlZ19taW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/index.tsx\n");
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! socket.io-client */ \"socket.io-client\");\n/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/dynamic */ \"./node_modules/next/dynamic.js\");\n/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _barrel_optimize_names_Box_mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! __barrel_optimize__?names=Box!=!@mui/material */ \"__barrel_optimize__?names=Box!=!./node_modules/@mui/material/index.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([socket_io_client__WEBPACK_IMPORTED_MODULE_2__]);\nsocket_io_client__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n// frontend/pages/index.tsx\n\n\n\n // Dynamic import를 위해 추가\n\n// --- FIXED: Dynamically import the canvas component with SSR turned off ---\n// SimulationCanvas는 브라우저 환경에서만 렌더링되도록 설정합니다.\nconst SimulationCanvas = next_dynamic__WEBPACK_IMPORTED_MODULE_3___default()(()=>__webpack_require__.e(/*! import() */ \"components_SimulationCanvas_tsx\").then(__webpack_require__.bind(__webpack_require__, /*! @/components/SimulationCanvas */ \"./components/SimulationCanvas.tsx\")), {\n    loadableGenerated: {\n        modules: [\n            \"pages/index.tsx -> \" + \"@/components/SimulationCanvas\"\n        ]\n    },\n    ssr: false\n});\nconst BACKEND_URL = \"http://127.0.0.1:8000\";\nconst NavigationPage = ()=>{\n    const [socket, setSocket] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    const [isConnected, setIsConnected] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const [simulationState, setSimulationState] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        const newSocket = (0,socket_io_client__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(BACKEND_URL);\n        setSocket(newSocket);\n        newSocket.on(\"connect\", ()=>setIsConnected(true));\n        newSocket.on(\"simulation_update\", (data)=>setSimulationState(data));\n        newSocket.on(\"disconnect\", ()=>setIsConnected(false));\n        return ()=>{\n            newSocket.disconnect();\n        };\n    }, []);\n    const handleStartSimulation = ()=>{\n        if (socket) {\n            socket.emit(\"start_scenario\", {\n                scenario_path: \"scenarios/busan_port_approach.yaml\"\n            });\n        }\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_barrel_optimize_names_Box_mui_material__WEBPACK_IMPORTED_MODULE_4__.Box, {\n        className: \"w-full h-full flex flex-col p-4 text-gray-200\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex-shrink-0\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                        className: \"text-3xl font-bold\",\n                        children: \"Navigation Module\"\n                    }, void 0, false, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 50,\n                        columnNumber: 9\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        children: [\n                            \"Connection:\",\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                className: isConnected ? \"text-green-400\" : \"text-red-400\",\n                                children: isConnected ? \" Online\" : \" Offline\"\n                            }, void 0, false, {\n                                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                                lineNumber: 53,\n                                columnNumber: 11\n                            }, undefined)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 51,\n                        columnNumber: 9\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                        onClick: handleStartSimulation,\n                        className: \"px-4 py-2 my-2 bg-blue-600 rounded hover:bg-blue-700 transition-colors\",\n                        children: \"Start Busan Port Scenario\"\n                    }, void 0, false, {\n                        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                        lineNumber: 58,\n                        columnNumber: 9\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 49,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_barrel_optimize_names_Box_mui_material__WEBPACK_IMPORTED_MODULE_4__.Box, {\n                className: \"flex-grow mt-4\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(SimulationCanvas, {\n                    state: simulationState\n                }, void 0, false, {\n                    fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                    lineNumber: 67,\n                    columnNumber: 9\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n                lineNumber: 66,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/seoki/Desktop/maritiko/Maritiko/frontend/pages/index.tsx\",\n        lineNumber: 48,\n        columnNumber: 5\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavigationPage);\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC50c3giLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsMkJBQTJCOztBQUVpQjtBQUNFO0FBQ1gsQ0FBQyx3QkFBd0I7QUFDeEI7QUFFcEMsNkVBQTZFO0FBQzdFLDZDQUE2QztBQUM3QyxNQUFNSyxtQkFBbUJGLG1EQUFPQSxDQUM5QixJQUFNLHNNQUFPOzs7Ozs7SUFDWEcsS0FBSzs7QUFXVCxNQUFNQyxjQUFjO0FBRXBCLE1BQU1DLGlCQUFpQjtJQUNyQixNQUFNLENBQUNDLFFBQVFDLFVBQVUsR0FBR1QsK0NBQVFBLENBQWdCO0lBQ3BELE1BQU0sQ0FBQ1UsYUFBYUMsZUFBZSxHQUFHWCwrQ0FBUUEsQ0FBQztJQUMvQyxNQUFNLENBQUNZLGlCQUFpQkMsbUJBQW1CLEdBQUdiLCtDQUFRQSxDQUF5QjtJQUUvRUQsZ0RBQVNBLENBQUM7UUFDUixNQUFNZSxZQUFZYiw0REFBRUEsQ0FBQ0s7UUFDckJHLFVBQVVLO1FBQ1ZBLFVBQVVDLEVBQUUsQ0FBQyxXQUFXLElBQU1KLGVBQWU7UUFDN0NHLFVBQVVDLEVBQUUsQ0FBQyxxQkFBcUIsQ0FBQ0MsT0FBMEJILG1CQUFtQkc7UUFDaEZGLFVBQVVDLEVBQUUsQ0FBQyxjQUFjLElBQU1KLGVBQWU7UUFDaEQsT0FBTztZQUFRRyxVQUFVRyxVQUFVO1FBQUk7SUFDekMsR0FBRyxFQUFFO0lBRUwsTUFBTUMsd0JBQXdCO1FBQzVCLElBQUlWLFFBQVE7WUFDVkEsT0FBT1csSUFBSSxDQUFDLGtCQUFrQjtnQkFDNUJDLGVBQWU7WUFDakI7UUFDRjtJQUNGO0lBRUEscUJBQ0UsOERBQUNqQix3RUFBR0E7UUFBQ2tCLFdBQVU7OzBCQUNiLDhEQUFDQztnQkFBSUQsV0FBVTs7a0NBQ2IsOERBQUNFO3dCQUFHRixXQUFVO2tDQUFxQjs7Ozs7O2tDQUNuQyw4REFBQ0c7OzRCQUFFOzBDQUVELDhEQUFDQztnQ0FBS0osV0FBV1gsY0FBYyxtQkFBbUI7MENBQy9DQSxjQUFjLFlBQVk7Ozs7Ozs7Ozs7OztrQ0FJL0IsOERBQUNnQjt3QkFDQ0MsU0FBU1Q7d0JBQ1RHLFdBQVU7a0NBQ1g7Ozs7Ozs7Ozs7OzswQkFLSCw4REFBQ2xCLHdFQUFHQTtnQkFBQ2tCLFdBQVU7MEJBQ2IsNEVBQUNqQjtvQkFBaUJ3QixPQUFPaEI7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSWpDO0FBRUEsaUVBQWVMLGNBQWNBLEVBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9tYXJpdGlrby1mcm9udGVuZC8uL3BhZ2VzL2luZGV4LnRzeD8wN2ZmIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGZyb250ZW5kL3BhZ2VzL2luZGV4LnRzeFxuXG5pbXBvcnQgeyB1c2VFZmZlY3QsIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IGlvLCB7IFNvY2tldCB9IGZyb20gJ3NvY2tldC5pby1jbGllbnQnO1xuaW1wb3J0IGR5bmFtaWMgZnJvbSAnbmV4dC9keW5hbWljJzsgLy8gRHluYW1pYyBpbXBvcnTrpbwg7JyE7ZW0IOy2lOqwgFxuaW1wb3J0IHsgQm94IH0gZnJvbSAnQG11aS9tYXRlcmlhbCc7XG5cbi8vIC0tLSBGSVhFRDogRHluYW1pY2FsbHkgaW1wb3J0IHRoZSBjYW52YXMgY29tcG9uZW50IHdpdGggU1NSIHR1cm5lZCBvZmYgLS0tXG4vLyBTaW11bGF0aW9uQ2FudmFz64qUIOu4jOudvOyasOyggCDtmZjqsr3sl5DshJzrp4wg66CM642U66eB65CY64+E66GdIOyEpOygle2VqeuLiOuLpC5cbmNvbnN0IFNpbXVsYXRpb25DYW52YXMgPSBkeW5hbWljKFxuICAoKSA9PiBpbXBvcnQoJ0AvY29tcG9uZW50cy9TaW11bGF0aW9uQ2FudmFzJyksXG4gIHsgc3NyOiBmYWxzZSB9XG4pO1xuXG5pbnRlcmZhY2UgU2ltdWxhdGlvblN0YXRlIHtcbiAgdGltZTogbnVtYmVyO1xuICBwb3NpdGlvbjogW251bWJlciwgbnVtYmVyXTtcbiAgaGVhZGluZ19kZWc6IG51bWJlcjtcbiAgc29nX2t0czogbnVtYmVyO1xuICByb3RfZGVnX21pbjogbnVtYmVyO1xufVxuXG5jb25zdCBCQUNLRU5EX1VSTCA9ICdodHRwOi8vMTI3LjAuMC4xOjgwMDAnO1xuXG5jb25zdCBOYXZpZ2F0aW9uUGFnZSA9ICgpID0+IHtcbiAgY29uc3QgW3NvY2tldCwgc2V0U29ja2V0XSA9IHVzZVN0YXRlPFNvY2tldCB8IG51bGw+KG51bGwpO1xuICBjb25zdCBbaXNDb25uZWN0ZWQsIHNldElzQ29ubmVjdGVkXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW3NpbXVsYXRpb25TdGF0ZSwgc2V0U2ltdWxhdGlvblN0YXRlXSA9IHVzZVN0YXRlPFNpbXVsYXRpb25TdGF0ZSB8IG51bGw+KG51bGwpO1xuXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgY29uc3QgbmV3U29ja2V0ID0gaW8oQkFDS0VORF9VUkwpO1xuICAgIHNldFNvY2tldChuZXdTb2NrZXQpO1xuICAgIG5ld1NvY2tldC5vbignY29ubmVjdCcsICgpID0+IHNldElzQ29ubmVjdGVkKHRydWUpKTtcbiAgICBuZXdTb2NrZXQub24oJ3NpbXVsYXRpb25fdXBkYXRlJywgKGRhdGE6IFNpbXVsYXRpb25TdGF0ZSkgPT4gc2V0U2ltdWxhdGlvblN0YXRlKGRhdGEpKTtcbiAgICBuZXdTb2NrZXQub24oJ2Rpc2Nvbm5lY3QnLCAoKSA9PiBzZXRJc0Nvbm5lY3RlZChmYWxzZSkpO1xuICAgIHJldHVybiAoKSA9PiB7IG5ld1NvY2tldC5kaXNjb25uZWN0KCk7IH07XG4gIH0sIFtdKTtcblxuICBjb25zdCBoYW5kbGVTdGFydFNpbXVsYXRpb24gPSAoKSA9PiB7XG4gICAgaWYgKHNvY2tldCkge1xuICAgICAgc29ja2V0LmVtaXQoJ3N0YXJ0X3NjZW5hcmlvJywgeyBcbiAgICAgICAgc2NlbmFyaW9fcGF0aDogJ3NjZW5hcmlvcy9idXNhbl9wb3J0X2FwcHJvYWNoLnlhbWwnIFxuICAgICAgfSk7XG4gICAgfVxuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPEJveCBjbGFzc05hbWU9XCJ3LWZ1bGwgaC1mdWxsIGZsZXggZmxleC1jb2wgcC00IHRleHQtZ3JheS0yMDBcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC1zaHJpbmstMFwiPlxuICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkXCI+TmF2aWdhdGlvbiBNb2R1bGU8L2gxPlxuICAgICAgICA8cD5cbiAgICAgICAgICBDb25uZWN0aW9uOiBcbiAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9e2lzQ29ubmVjdGVkID8gJ3RleHQtZ3JlZW4tNDAwJyA6ICd0ZXh0LXJlZC00MDAnfT5cbiAgICAgICAgICAgIHtpc0Nvbm5lY3RlZCA/ICcgT25saW5lJyA6ICcgT2ZmbGluZSd9XG4gICAgICAgICAgPC9zcGFuPlxuICAgICAgICA8L3A+XG4gICAgICAgIFxuICAgICAgICA8YnV0dG9uIFxuICAgICAgICAgIG9uQ2xpY2s9e2hhbmRsZVN0YXJ0U2ltdWxhdGlvbn0gXG4gICAgICAgICAgY2xhc3NOYW1lPVwicHgtNCBweS0yIG15LTIgYmctYmx1ZS02MDAgcm91bmRlZCBob3ZlcjpiZy1ibHVlLTcwMCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgID5cbiAgICAgICAgICBTdGFydCBCdXNhbiBQb3J0IFNjZW5hcmlvXG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgPC9kaXY+XG5cbiAgICAgIDxCb3ggY2xhc3NOYW1lPVwiZmxleC1ncm93IG10LTRcIj5cbiAgICAgICAgPFNpbXVsYXRpb25DYW52YXMgc3RhdGU9e3NpbXVsYXRpb25TdGF0ZX0gLz5cbiAgICAgIDwvQm94PlxuICAgIDwvQm94PlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgTmF2aWdhdGlvblBhZ2U7XG5cbiJdLCJuYW1lcyI6WyJ1c2VFZmZlY3QiLCJ1c2VTdGF0ZSIsImlvIiwiZHluYW1pYyIsIkJveCIsIlNpbXVsYXRpb25DYW52YXMiLCJzc3IiLCJCQUNLRU5EX1VSTCIsIk5hdmlnYXRpb25QYWdlIiwic29ja2V0Iiwic2V0U29ja2V0IiwiaXNDb25uZWN0ZWQiLCJzZXRJc0Nvbm5lY3RlZCIsInNpbXVsYXRpb25TdGF0ZSIsInNldFNpbXVsYXRpb25TdGF0ZSIsIm5ld1NvY2tldCIsIm9uIiwiZGF0YSIsImRpc2Nvbm5lY3QiLCJoYW5kbGVTdGFydFNpbXVsYXRpb24iLCJlbWl0Iiwic2NlbmFyaW9fcGF0aCIsImNsYXNzTmFtZSIsImRpdiIsImgxIiwicCIsInNwYW4iLCJidXR0b24iLCJvbkNsaWNrIiwic3RhdGUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/index.tsx\n");
+
+/***/ }),
+
+/***/ "@mui/system":
+/*!******************************!*\
+  !*** external "@mui/system" ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/system");
+
+/***/ }),
+
+/***/ "@mui/system/InitColorSchemeScript":
+/*!****************************************************!*\
+  !*** external "@mui/system/InitColorSchemeScript" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/system/InitColorSchemeScript");
+
+/***/ }),
+
+/***/ "@mui/system/colorManipulator":
+/*!***********************************************!*\
+  !*** external "@mui/system/colorManipulator" ***!
+  \***********************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/system/colorManipulator");
+
+/***/ }),
+
+/***/ "@mui/system/createStyled":
+/*!*******************************************!*\
+  !*** external "@mui/system/createStyled" ***!
+  \*******************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/system/createStyled");
+
+/***/ }),
+
+/***/ "@mui/system/createTheme":
+/*!******************************************!*\
+  !*** external "@mui/system/createTheme" ***!
+  \******************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/system/createTheme");
+
+/***/ }),
+
+/***/ "@mui/system/styleFunctionSx":
+/*!**********************************************!*\
+  !*** external "@mui/system/styleFunctionSx" ***!
+  \**********************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/system/styleFunctionSx");
+
+/***/ }),
+
+/***/ "@mui/system/useThemeProps":
+/*!********************************************!*\
+  !*** external "@mui/system/useThemeProps" ***!
+  \********************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/system/useThemeProps");
+
+/***/ }),
+
+/***/ "@mui/utils":
+/*!*****************************!*\
+  !*** external "@mui/utils" ***!
+  \*****************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/utils");
+
+/***/ }),
+
+/***/ "@mui/utils/deepmerge":
+/*!***************************************!*\
+  !*** external "@mui/utils/deepmerge" ***!
+  \***************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/utils/deepmerge");
+
+/***/ }),
+
+/***/ "@mui/utils/formatMuiErrorMessage":
+/*!***************************************************!*\
+  !*** external "@mui/utils/formatMuiErrorMessage" ***!
+  \***************************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/utils/formatMuiErrorMessage");
+
+/***/ }),
+
+/***/ "@mui/utils/generateUtilityClass":
+/*!**************************************************!*\
+  !*** external "@mui/utils/generateUtilityClass" ***!
+  \**************************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/utils/generateUtilityClass");
+
+/***/ }),
+
+/***/ "@mui/utils/generateUtilityClasses":
+/*!****************************************************!*\
+  !*** external "@mui/utils/generateUtilityClasses" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/utils/generateUtilityClasses");
+
+/***/ }),
+
+/***/ "@pixi/react":
+/*!******************************!*\
+  !*** external "@pixi/react" ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = require("@pixi/react");
 
 /***/ }),
 
@@ -40,6 +187,16 @@ eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__
 /***/ ((module) => {
 
 module.exports = require("next/dist/compiled/next-server/pages.runtime.dev.js");
+
+/***/ }),
+
+/***/ "prop-types":
+/*!*****************************!*\
+  !*** external "prop-types" ***!
+  \*****************************/
+/***/ ((module) => {
+
+module.exports = require("prop-types");
 
 /***/ }),
 
@@ -73,6 +230,16 @@ module.exports = require("react/jsx-runtime");
 
 /***/ }),
 
+/***/ "pixi.js":
+/*!**************************!*\
+  !*** external "pixi.js" ***!
+  \**************************/
+/***/ ((module) => {
+
+module.exports = import("pixi.js");;
+
+/***/ }),
+
 /***/ "socket.io-client":
 /*!***********************************!*\
   !*** external "socket.io-client" ***!
@@ -100,7 +267,7 @@ module.exports = require("path");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc"], () => (__webpack_exec__("./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES&page=%2F&preferredRegion=&absolutePagePath=.%2Fpages%2Findex.tsx&absoluteAppPath=private-next-pages%2F_app&absoluteDocumentPath=private-next-pages%2F_document&middlewareConfigBase64=e30%3D!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/@mui","vendor-chunks/@babel"], () => (__webpack_exec__("./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES&page=%2F&preferredRegion=&absolutePagePath=.%2Fpages%2Findex.tsx&absoluteAppPath=private-next-pages%2F_app&absoluteDocumentPath=private-next-pages%2F_document&middlewareConfigBase64=e30%3D!")));
 module.exports = __webpack_exports__;
 
 })();

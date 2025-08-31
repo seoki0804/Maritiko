@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"pages/index.tsx -> @/components/SimulationCanvas\":{\"id\":\"pages/index.tsx -> @/components/SimulationCanvas\",\"files\":[\"static/chunks/components_SimulationCanvas_tsx.js\"]}}"
