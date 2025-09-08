@@ -2,15 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
-import dynamic from 'next/dynamic'; // Dynamic import를 위해 추가
-import { Box } from '@mui/material';
-
-// --- FIXED: Dynamically import the canvas component with SSR turned off ---
-// SimulationCanvas는 브라우저 환경에서만 렌더링되도록 설정합니다.
-const SimulationCanvas = dynamic(
-  () => import('@/components/SimulationCanvas'),
-  { ssr: false }
-);
+import { Box, Button, Paper, Typography } from '@mui/material';
 
 interface SimulationState {
   time: number;
@@ -45,27 +37,33 @@ const NavigationPage = () => {
   };
 
   return (
-    <Box className="w-full h-full flex flex-col p-4 text-gray-200">
-      <div className="flex-shrink-0">
-        <h1 className="text-3xl font-bold">Navigation Module</h1>
-        <p>
-          Connection: 
-          <span className={isConnected ? 'text-green-400' : 'text-red-400'}>
-            {isConnected ? ' Online' : ' Offline'}
-          </span>
-        </p>
-        
-        <button 
-          onClick={handleStartSimulation} 
-          className="px-4 py-2 my-2 bg-blue-600 rounded hover:bg-blue-700 transition-colors"
-        >
+    <Box sx={{ color: '#eee' }}>
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Navigation Module
+        </Typography>
+        <Typography>
+          Connection Status: 
+          <Box component="span" sx={{ color: isConnected ? 'success.main' : 'error.main', ml: 1 }}>
+            {isConnected ? 'Online' : 'Offline'}
+          </Box>
+        </Typography>
+        <Button variant="contained" onClick={handleStartSimulation} sx={{ my: 2 }}>
           Start Busan Port Scenario
-        </button>
-      </div>
-
-      <Box className="flex-grow mt-4">
-        <SimulationCanvas state={simulationState} />
+        </Button>
       </Box>
+      
+      {/* TODO: Replace this with the actual PixiJS canvas */}
+      <Paper elevation={3} sx={{ p: 2, bgcolor: '#2a2a2a', fontFamily: 'monospace' }}>
+        <Typography variant="h6" gutterBottom>Live Data Stream</Typography>
+        {simulationState ? (
+          <>
+            <Typography>Time: {simulationState.time.toFixed(1)} s</Typography>
+            <Typography>Position (N, E): {simulationState.position[0].toFixed(1)}, {simulationState.position[1].toFixed(1)} m</Typography>
+            <Typography>Heading: {simulationState.heading_deg.toFixed(1)} °</Typography>
+          </>
+        ) : <Typography>Waiting for data...</Typography>}
+      </Paper>
     </Box>
   );
 };

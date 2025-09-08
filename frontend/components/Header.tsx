@@ -1,6 +1,6 @@
 // frontend/components/Header.tsx
 import React from 'react';
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
 const Header = () => {
   return (
@@ -9,7 +9,6 @@ const Header = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Navigation Simulation
         </Typography>
-        {/* TODO: 여기에 시나리오 이름, 사용자 정보 등을 추가할 수 있습니다. */}
       </Toolbar>
     </AppBar>
   );
