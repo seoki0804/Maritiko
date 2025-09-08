@@ -39,9 +39,6 @@ const NavigationPage = () => {
   return (
     <Box sx={{ color: '#eee' }}>
       <Box sx={{ mb: 2 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Navigation Module
-        </Typography>
         <Typography>
           Connection Status: 
           <Box component="span" sx={{ color: isConnected ? 'success.main' : 'error.main', ml: 1 }}>
